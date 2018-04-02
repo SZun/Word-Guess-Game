@@ -1,8 +1,18 @@
+//!!FIX DONKEY KONG!! (replace correct var gameNames withing functions parameters with var donkeyKongx)
+
 
 // (Dry Up!!)Variables:
-// - Game Names
-var gameNames = ["donkey kong","mario","duck hunt","space invaders","pac-man"];
-// - Pictures
+// - Game Letters Arrays
+var donkeyKongLetters = ["d","o","n","k","e","y","k","o","n","g"];
+var marioLetters = ["m","a","r","i","o"];
+var duckHuntLetters = ["d","u","c","k","h","u","n","t"];
+var spaceInvadersLetters = ["s","p","a","c","e","i","n","v","a","d","e","r","s",];
+var pacMan = ["p","a","c","m","a","n",];
+
+
+var gameNames = ["donkeykong","mario","duckhunt","spaceinvaders","pacman"];
+
+// - Pictures ??how do I call on these??
 var gamePictures = [];
 // Wins #, Losses #, Score # # of guesses left, Letters Guessed, 
 var wins = 0;
@@ -20,7 +30,7 @@ var lettersGuessed = ["","","","","","","","",];
 // Randomize word ??function??
 var randomGameName = randomGameName[Math.floor(Math.random() * gameNames.length)]; //Is this correct?
 // "_ _ _ _ _ _ _ _" (letter spaces)
-var letterSpaces = ["_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ",];
+var letterPlaceholders = ["_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ "," "];
 
 
 //keylogger
@@ -56,24 +66,33 @@ else if (userGuess === gameNames[0]) {
     //display picture
 
     //play/switch music
+        
+    //reset game ??use var randomGameName ??
 
-    // var letterSpaces rest
 }
 else if (userGuess != gameNames[0]) { 
     //If user looses increase losses++
     losses++;
-    //reset var letterSpaces to randomGameName.length
+    //reset var letterPlaceholders to randomGameName.length
 
     //update score
     score[0]--; //is this correct?
     score[2]++ //is this correct?
+
+    //fill in var letterPlaceholder & display picture
+
+    //reset game ??use var randomGameName ??
 
 }
 //If  userGuess same letter again display "You've already guessed "letter", please press another letter"
 else (userGuess === lettersGuessed[0] || userGuess === lettersGuessed[1] || userGuess === lettersGuessed[2] ||  userGuess === lettersGuessed[3] || userGuess === lettersGuessed[4] || userGuess === lettersGuessed[5] || userGuess === lettersGuessed[6]) {
     //record and replace letter guessed into alert
     alert("You've already guessed " + /*letterGuessed[n]*/ "!")
+
 }
+}
+//If user wins on pacman replace space between letters with "-" 
+
 
 
 
