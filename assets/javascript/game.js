@@ -20,36 +20,103 @@ var hangman = {
         guessesLeft: 8,
       },
 
+    user: {
+        userGuess: '',
+        userGuessCorrect: ['','','','','','','','','','','','',''],
+        lettersGuessed: ['','','','','','','']
+    },
+
     //i varibale
-    iplaceholder: {
+    placeholders: {
       i: 0,
+      lettersplaceholder: ["_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ "," "],
+      
     
     },
 
     //Donkey Kong Variabes 
     donkeyKong: {
       name: "DONKEY KONG",
-      letters: ["D","O","N","K","E","Y","K","O","N","G"], 
-      //Donkey Kong Win  
-      winner: function() {
-      for (hangman.iplaceholder.i = 0; hangman.iplaceholder.i < hangman.donkeyKong.letters.length; hangman.iplaceholder.i++) {
-        //if user guesses correct
-        if (userGuess === hangman.donkeyKong.letters[hangman.iplaceholder.i]) {
+      letters: ["D","O","N","K","E","Y","G"], 
+      //Donkey Kong Logic  
+      guess: function () {
+        //User Guesses "D" Correct
+        if (userGuess === hangman.donkeyKong.letters[0]) {
+            hangman.placeholders.lettersplaceholder[0] = "D";
+            userGuessCorrect = + "D";
+            lettersGuessed = + "D";
+        }
+        //User Guesses "O" Correct
+        else if (userGuess === hangman.donkeyKong.letters[1]) {
+            hangman.placeholders.lettersplaceholder[1] = "O";
+            hangman.placeholders.lettersplaceholder[7] = "O";
+            userGuessCorrect = + "O";
+            lettersGuessed = + "O";
+        }
+        //User Guesses "N" Correct
+        else if (userGuess === hangman.donkeyKong.letters[2]) {
+            hangman.placeholders.lettersplaceholder[2] = "N";
+            hangman.placeholders.lettersplaceholder[8] = "N";
+            userGuessCorrect = + "N";
+            lettersGuessed = + "N";
+        }
+        //User Guesses "K" Correct
+        else if (userGuess === hangman.donkeyKong.letters[3]) {
+            hangman.placeholders.lettersplaceholder[3] = "K";
+            hangman.placeholders.lettersplaceholder[6] = "K";
+            userGuessCorrect = + "K";
+            lettersGuessed = + "K";
+        }
+        //User Guesses "E" Correct
+        else if (userGuess === hangman.donkeyKong.letters[4]) {
+            hangman.placeholders.lettersplaceholder[4] = "E";   
+            userGuessCorrect = + "E";
+            lettersGuessed = + "E";
+        }
+        //User Guesses "Y" Correct
+        else if (userGuess === hangman.donkeyKong.letters[5]) {
+            hangman.placeholders.lettersplaceholder[5] = "Y";
+            userGuessCorrect = + "Y";
+            lettersGuessed = + "Y";
+        }
+        //User Guesses "G" Correct
+        else if (userGuess === hangman.donkeyKong.letters[6]) {
+            hangman.placeholders.lettersplaceholder[9] = "G";
+            userGuessCorrect = + "G";
+            lettersGuessed = + "G";
+        }
+        // If user guesses Donkey Kong 
+        else if (hangman.user.userGuessCorrect === hangman.donkeyKong.letters) {
             //wins goes up
             hangman.updates.wins++;
             //score goes up //is this correct?
             hangman.updates.score[0]++;
             hangman.updates.score[2]++;
+            //letters placeholder replaced with correct game name
+            hangman.placeholders.lettersplaceholder = hangman.donkeyKong.name;
+            //picture displayed (give picture id and change display)
+
+            //music plays
           }
-          //if user runs out of guesses
+          //if user runs out of guesses (loses)
         else if (hangman.updates.guessesLeft === 0) {
+            //losses goes up
             hangman.updates.losses++;
+            //score total goes up
             hangman.updates.score[2]++;
+            //letters placeholder replaced with correct game name
+            hangman.placeholders.lettersplaceholder = hangman.donkeyKong.name;
+            //picture displayed (give picture id and change display)
+
+            //music plays
 
         }
-
-        }
+        //if user guesses same letter again
+        else if (hangman.user.userGuess === hangman.user.lettersGuessed.indexOf()) {
+            alert("You've already used that leter! Please try another letter.")
+        } 
     },
+},
     //Mario Variables
     mario: {
       name: "MARIO",
@@ -71,11 +138,7 @@ var hangman = {
       letters: ["P","A","C","M","A","N"] 
     },
 
-
-
-},
-
-  };
+};
   
 
 
