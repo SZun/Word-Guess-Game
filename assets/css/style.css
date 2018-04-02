@@ -1,0 +1,44 @@
+body {
+    background: #000000;
+}
+.eightBitPic {
+    margin-left: 17%;
+}
+.eightBitHeader {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    color: #FFFFFF;
+}
+.leftGameBox {
+    border-style: dashed;
+    height: 600px;
+    width: 500px;
+    border-color: #FFFFFF;
+    border-right: 10px dashed #FFFFFF;
+    margin-left: 8.5%;
+    padding: 0;
+}
+.rightGameBox {
+    border-style: dashed;
+    height: 600px;
+    width: 500px;
+    border-color: #FFFFFF;
+    margin-right: 0;
+    padding: 0;
+    border-left: none;
+}
+.gameImages {
+    width: 450px;
+    height: 250px;
+    margin-top: 5%;
+    border: 3px dashed #FFFFFF;
+    visibility: hidden;
+}
+.eightBitFont {
+    font-family: 'Press Start 2P', cursive;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+    margin-top: 5%;
+}
