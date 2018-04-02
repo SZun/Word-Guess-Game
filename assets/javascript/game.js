@@ -1,8 +1,9 @@
 var hangman = {
    
+    
     newName: {
-        randomName: randomName[Math.floor(Math.random() * `${variableThatIsArrayOfGameNames}`.length)], //Is this correct?
-        },
+        randomName: randomName[Math.floor(Math.random() * `${variableThatIsArrayOfGameNames}`.length)], 
+        }, //Is this correct?
    
     //html
     // var html = wins + losses + score + guessesLeft + lettersGuessed ;
@@ -10,7 +11,13 @@ var hangman = {
     // document.querySelector(/* html id ?? <div class="wrapper"></div> ?? */).innerHTML = html;
     // };
 
-    //console.log()'s to check if things are working right
+    // Add this in!!!! 
+    // document.onkeyup = function(userInput) {
+
+    //     // Determines which key was pressed.
+    //     var userGuess = userInput.key;
+  
+
     
     //Updatables Variables
     updates: {
@@ -20,6 +27,7 @@ var hangman = {
         guessesLeft: 8,
       },
 
+    //User Varibales
     user: {
         userGuess: '',
         userGuessCorrect: ['','','','','','','','','','','','',''],
@@ -40,6 +48,8 @@ var hangman = {
       letters: ["D","O","N","K","E","Y","G"], 
       //Donkey Kong Logic  
       guess: function () {
+
+        //User Guessing Letters Correct
         //User Guesses "D" Correct
         if (userGuess === hangman.donkeyKong.letters[0]) {
             hangman.placeholders.lettersplaceholder[0] = "D";
@@ -109,12 +119,16 @@ var hangman = {
             //picture displayed (give picture id and change display)
 
             //music plays
-
         }
         //if user guesses same letter again
         else if (hangman.user.userGuess === hangman.user.lettersGuessed.indexOf()) {
             alert("You've already used that leter! Please try another letter.")
         } 
+        //User Guesses Wrong Letter
+        else {
+            hangman.updates.guessesLeft--;
+            hangman.placeholders.lettersGuessed = + '';
+        }
     },
 },
     //Mario Variables
@@ -140,7 +154,7 @@ var hangman = {
 
 };
   
-
+//console.log()'s to check if things are working right
 
 
 
