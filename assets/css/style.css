@@ -8,6 +8,7 @@ body {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
     color: #FFFFFF;
+    margin-bottom: 36px;
 }
 .leftGameBox {
     border-style: dashed;
@@ -32,7 +33,7 @@ body {
     height: 250px;
     margin-top: 5%;
     border: 3px dashed #FFFFFF;
-    visibility: hidden;
+    display: none;
 }
 .eightBitFont {
     font-family: 'Press Start 2P', cursive;
