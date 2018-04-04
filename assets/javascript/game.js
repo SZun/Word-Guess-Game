@@ -42,7 +42,7 @@ var hangman = {
     //placeholder variables
     placeholders: {
       i: 0,
-      lettersplaceholder: ["_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ ","_ "," "],        
+      lettersplaceholder: [''],        
     },
     //Donkey Kong Variabes 
     donkeyKong: {
@@ -51,55 +51,17 @@ var hangman = {
       //Donkey Kong Logic  
       guess: function () {
         //User Guessing Letters Correct
-        //User Guesses "D" Correct
-        if (hangman.donkeyKong.letters.indexOf(hangman.user.userGuess >= 0)) {
+        //User Guesses Letter of Donkey Kong Correct
+        if (hangman.donkeyKong.name.indexOf(hangman.user.userGuess >= 0 )) {
             console.log("here")
-            var b = hangman.donkeyKong.letters.indexOf(hangman.user.userGuess)
-            hangman.donkeyKong.name.split("").splice(b,1,hangman.user.userGuess) // hangman.placeholders.lettersplaceholder[0] = "D";
+            var b = hangman.donkeyKong.name.indexOf(hangman.user.userGuess)
+            hangman.donkeyKong.name.split("").splice(b,1,hangman.user.userGuess).push(hangman.placeholders.lettersplaceholder) //<-- *NEW*,check if correct
             console.log(hangman.donkeyKong.name)
+            console.log(hangman.placeholders.lettersplaceholder)
             hangman.user.userGuessCorrect.push(hangman.user.userGuess)
             hangman.user.lettersGuessed.push(hangman.user.userGuess)
             console.log(hangman.user.userGuessCorrect)
             console.log(hangman.user.lettersGuessed)
-        }
-        //User Guesses "O" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[1]) {
-            hangman.placeholders.lettersplaceholder[1] = "O";
-            hangman.placeholders.lettersplaceholder[7] = "O";
-            hangman.user.userGuessCorrect = + "O";
-            hangman.user.lettersGuessed = + "O";
-        }
-        //User Guesses "N" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[2]) {
-            hangman.placeholders.lettersplaceholder[2] = "N";
-            hangman.placeholders.lettersplaceholder[8] = "N";
-            hangman.user.userGuessCorrect = + "N";
-            hangman.user.lettersGuessed = + "N";
-        }
-        //User Guesses "K" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[3]) {
-            hangman.placeholders.lettersplaceholder[3] = "K";
-            hangman.placeholders.lettersplaceholder[6] = "K";
-            hangman.user.userGuessCorrect = + "K";
-            hangman.user.lettersGuessed = + "K";
-        }
-        //User Guesses "E" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[4]) {
-            hangman.placeholders.lettersplaceholder[4] = "E";   
-            hangman.user.userGuessCorrect = + "E";
-            hangman.user.lettersGuessed = + "E";
-        }
-        //User Guesses "Y" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[5]) {
-            hangman.placeholders.lettersplaceholder[5] = "Y";
-            hangman.user.userGuessCorrect = + "Y";
-            hangman.user.lettersGuessed = + "Y";
-        }
-        //User Guesses "G" Correct
-        else if (hangman.user.userGuess === hangman.donkeyKong.letters[6]) {
-            hangman.placeholders.lettersplaceholder[9] = "G";
-            hangman.user.userGuessCorrect = + "G";
-            hangman.user.lettersGuessed = + "G";
         }
         // If user guesses Donkey Kong 
         else if (hangman.user.userGuessCorrect === hangman.donkeyKong.letters) {
@@ -109,7 +71,7 @@ var hangman = {
             hangman.updates.score[0]++;
             hangman.updates.score[2]++;
             //letters placeholder replaced with correct game name
-            hangman.placeholders.lettersplaceholder = hangman.donkeyKong.name;
+            hangman.placeholders.lettersplaceholder = "DONKEY KONG";
             //picture displayed (give picture id and change display)
             
             //music plays
@@ -121,7 +83,7 @@ var hangman = {
             //score total goes up
             hangman.updates.score[2]++;
             //letters placeholder replaced with correct game name
-            hangman.placeholders.lettersplaceholder = hangman.donkeyKong.name;
+            hangman.placeholders.lettersplaceholder = "DONKEY KONG";
             //picture displayed (give picture id and change display)
 
             //music plays
@@ -134,7 +96,7 @@ var hangman = {
         //User Guesses Wrong Letter
         else {
             hangman.updates.guessesLeft--;
-            hangman.placeholders.lettersGuessed = + '';
+            hangman.placeholders.lettersGuessed.push(hangman.userGuess); //<-- *NEW*,check if correct
         }
     },
 },
@@ -159,8 +121,7 @@ var hangman = {
       letters: ["P","A","C","M","A","N"] 
     },
 };  
-//console.log()'s to check if things are working right
-// console.log(hangman.donkeyKong.guess())
+
 
 
 
